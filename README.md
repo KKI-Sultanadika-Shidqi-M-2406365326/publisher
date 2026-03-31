@@ -78,7 +78,6 @@ This is the place for you to write reflections:
 
 #### Reflection Publisher-1
 
-Reflection Publisher-1
 1. In the Observer pattern diagram explained by the Head First Design Pattern book, Subscriber is defined as an interface. Explain based on your understanding of Observer design patterns, do we still need an interface (or trait in Rust) in this BambangShop case, or a single Model struct is enough?
 
 Answer: In this case, a single struct is enough because all subscribers have the same behavior (receiving notifications). A trait is only necessary if there are multiple types of subscribers with different behaviors.
@@ -94,6 +93,20 @@ Answer: Singleton only ensures a single shared instance, but does not handle thr
 
 #### Reflection Publisher-2
 
+1. In the Model-View Controller (MVC) compound pattern, there is no “Service” and “Repository”. Model in MVC covers both data storage and business logic. Explain based on your understanding of design principles, why we need to separate “Service” and “Repository” from a Model?
 
+Answer:
+From what I experienced while working on this project, separating Service and Repository makes the code much cleaner. If everything is put inside the Model, it becomes too overloaded. By separating them, the Model only focuses on data, the Repository handles data storage, and the Service handles the logic. This makes it easier for me to understand the code and also easier to modify or debug without affecting other parts.
+
+2. What happens if we only use the Model? Explain your imagination on how the interactions between each model (Program, Subscriber, Notification) affect the code complexity for each model?
+
+Answer: If I only use the Model, it would get messy really fast. Each model like Program, Subscriber, and Notification would need to handle everything, including logic and data access. From my perspective, this would make the models depend on each other a lot, and the code would become harder to manage. It would also be confusing when updating one part because it might affect other models.
+
+3. Have you explored more about Postman? Tell us how this tool helps you to test your current work. You might want to also list which features in Postman you are interested in or feel like it is helpful to help your Group Project or any of your future software engineering projects.
+
+Answer:
+
+Yes, I used Postman to test my API. It helps me because I can send requests and see the response without making a frontend. So it’s easier to check if my code is working or not. I think Postman is helpful because it makes testing simpler and faster.
 
 #### Reflection Publisher-3
+
