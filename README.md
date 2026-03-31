@@ -110,3 +110,18 @@ Yes, I used Postman to test my API. It helps me because I can send requests and 
 
 #### Reflection Publisher-3
 
+1. Observer Pattern has two variations: Push model (publisher pushes data to subscribers) and Pull model (subscribers pull data from publisher). In this tutorial case, which variation of Observer Pattern that we use?
+
+Answer: 
+From what I implemented, we are using the Push model. The NotificationService directly sends the notification data to each subscriber by calling their update() function. The subscriber doesn’t request the data, it just receives it when something happens. This also matches the idea of sending HTTP requests to subscriber URLs.
+
+2. What are the advantages and disadvantages of using the other variation of Observer Pattern for this tutorial case? (example: if you answer Q1 with Push, then imagine if we used Pull)
+
+Answer:
+If we used the Pull model, the subscriber would need to request the data from the publisher. From my perspective, the advantage is that the subscriber has more control over what data it wants. But the disadvantage is it becomes more complicated, because now each subscriber needs extra logic to fetch the data again. It also feels less efficient for this case since we already know what data to send when a product is updated.
+
+3. Explain what will happen to the program if we decide to not use multi-threading in the notification process.
+
+Answer:
+
+If we don’t use multi-threading, the notification will be sent one by one (sequential). From what I see, this will make the process slower, especially if there are many subscribers or if one of them is slow to respond. It could also block the main process, so the system might feel laggy when publishing products. That’s why using threads here helps, because all notifications can be sent at the same time instead of waiting one by one.
